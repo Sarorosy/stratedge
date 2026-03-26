@@ -179,7 +179,7 @@ export default function Header() {
             <img src="/logo.png" style={{ height: 40 , filter: theme === "light"
                   ? "invert(1) brightness(0.2)"
                   : "none"}}  />
-          </div>
+          </div> 
 
           {nav.map((n, i) => (
             <motion.div
