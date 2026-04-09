@@ -1033,57 +1033,162 @@ function Clients() {
 ═══════════════════════════════════════════════ */
 function AcademyPromo() {
   return (
-    <section style={{ background: "var(--color-surface-alt)", padding: "100px 0" }}>
-      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 40px" }}>
+    <section style={{
+      background: "var(--color-surface-alt)",
+      padding: "60px 16px"
+    }}>
+      <div style={{
+        maxWidth: 1280,
+        margin: "0 auto"
+      }}>
         <div style={{
-          background: "var(--color-surface-strong)", border: "1px solid var(--color-border)",
-          padding: "70px 60px", position: "relative", overflow: "hidden",
+          background: "var(--color-surface-strong)",
+          border: "1px solid var(--color-border)",
+          padding: "40px 20px",
+          position: "relative",
+          overflow: "hidden"
         }}>
-          {/* BG text */}
-          <div style={{
-            position: "absolute", top: -20, right: -20,
-            fontSize: 160, fontWeight: 900, color: "var(--color-accent-glow)", lineHeight: 1,
-            userSelect: "none", pointerEvents: "none",
-          }}>ACADEMY</div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 60, alignItems: "center" }}>
+          {/* BG TEXT */}
+          <div style={{
+            position: "absolute",
+            top: "-10px",
+            right: "-10px",
+            fontSize: "clamp(60px, 20vw, 160px)",
+            fontWeight: 900,
+            color: "var(--color-accent-glow)",
+            lineHeight: 1,
+            userSelect: "none",
+            pointerEvents: "none"
+          }}>
+            ACADEMY
+          </div>
+
+          {/* GRID */}
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "1fr",
+            gap: 30
+          }}
+          className="academy-grid">
+
+            {/* LEFT CONTENT */}
             <div>
-              <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 20 }}>
-                <div style={{ background: "var(--color-accent)", padding: "4px 12px" }}>
-                  <span style={{ color: "var(--color-accent-contrast)", fontSize: 10, fontWeight: 700, letterSpacing: 3, textTransform: "uppercase" }}>Digital Academy</span>
+              <div style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 12,
+                marginBottom: 16
+              }}>
+                <div style={{
+                  background: "var(--color-accent)",
+                  padding: "4px 10px"
+                }}>
+                  <span style={{
+                    color: "var(--color-accent-contrast)",
+                    fontSize: 10,
+                    fontWeight: 700,
+                    letterSpacing: 2,
+                    textTransform: "uppercase"
+                  }}>
+                    Digital Academy
+                  </span>
                 </div>
               </div>
-              <h2 style={{ fontSize: "clamp(28px,3.5vw,44px)", fontWeight: 700, color: "var(--color-text-strong)", lineHeight: 1.2, marginBottom: 16, letterSpacing: -0.5 }}>
+
+              <h2 style={{
+                fontSize: "clamp(24px, 6vw, 44px)",
+                fontWeight: 700,
+                color: "var(--color-text-strong)",
+                lineHeight: 1.3,
+                marginBottom: 12
+              }}>
                 Launch Your Digital<br />Marketing Career
               </h2>
-              <p style={{ color: "rgba(255,255,255,0.4)", fontSize: 15, lineHeight: 1.8, maxWidth: 500, fontWeight: 300 }}>
+
+              <p style={{
+                color: "rgba(255,255,255,0.5)",
+                fontSize: 14,
+                lineHeight: 1.7,
+                maxWidth: 500
+              }}>
                 Expert-led courses with hands-on training, real-world strategies, and industry-recognized certifications. Offline, Online & Self-paced.
               </p>
 
-              <div style={{ display: "flex", gap: 24, marginTop: 32, flexWrap: "wrap" }}>
+              {/* FEATURES */}
+              <div style={{
+                display: "flex",
+                gap: 16,
+                marginTop: 24,
+                flexWrap: "wrap"
+              }}>
                 {["8 Modules", "3 Formats", "Certified", "Job Assist"].map(f => (
-                    <div key={f} style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                    <div style={{ width: 6, height: 6, background: "var(--color-accent)" }} />
-                    <span style={{ color: "var(--color-text-soft)", fontSize: 13 }}>{f}</span>
+                  <div key={f} style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 6
+                  }}>
+                    <div style={{
+                      width: 6,
+                      height: 6,
+                      background: "var(--color-accent)"
+                    }} />
+                    <span style={{
+                      color: "var(--color-text-soft)",
+                      fontSize: 13
+                    }}>
+                      {f}
+                    </span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: 12, minWidth: 200 }}>
-              <a href={WA} target="_blank" rel="noopener noreferrer" style={{
-                display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
-                background: "linear-gradient(135deg,var(--color-accent),var(--color-accent-strong))", color: "var(--color-accent-contrast)",
-                padding: "15px 28px", fontSize: 12, fontWeight: 700,
-                letterSpacing: 2, textTransform: "uppercase", textDecoration: "none"
-              }}>
+            {/* BUTTONS */}
+            <div style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 12,
+              width: "100%"
+            }}>
+              <a
+                href={WA}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: 8,
+                  background: "linear-gradient(135deg,var(--color-accent),var(--color-accent-strong))",
+                  color: "var(--color-accent-contrast)",
+                  padding: "14px",
+                  fontSize: 12,
+                  fontWeight: 700,
+                  letterSpacing: 1.5,
+                  textTransform: "uppercase",
+                  textDecoration: "none",
+                  width: "100%"
+                }}
+              >
                 Enroll Now <ArrowRight size={14} />
               </a>
+
               <button style={{
-                display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
-                background: "transparent", border: "1px solid var(--color-border)",
-                color: "var(--color-accent)", padding: "15px 28px", fontSize: 12, fontWeight: 600,
-                letterSpacing: 2, textTransform: "uppercase", cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 8,
+                background: "transparent",
+                border: "1px solid var(--color-border)",
+                color: "var(--color-accent)",
+                padding: "14px",
+                fontSize: 12,
+                fontWeight: 600,
+                letterSpacing: 1.5,
+                textTransform: "uppercase",
+                cursor: "pointer",
+                width: "100%"
               }}>
                 View Syllabus
               </button>
@@ -1091,6 +1196,17 @@ function AcademyPromo() {
           </div>
         </div>
       </div>
+
+      {/* DESKTOP GRID OVERRIDE */}
+      <style jsx>{`
+        @media (min-width: 768px) {
+          .academy-grid {
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 60px;
+          }
+        }
+      `}</style>
     </section>
   );
 }
