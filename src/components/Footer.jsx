@@ -19,7 +19,7 @@ export default function Footer() {
   return (
     <footer style={{ background: "var(--color-surface-alt)", borderTop: "1px solid var(--color-border)", fontFamily: "'DM Sans',sans-serif" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: "80px 20px 0" }}>
-        <div style={{
+        <div className="footer-grid" style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
           gap: 40,
@@ -69,10 +69,10 @@ export default function Footer() {
             <div style={{ color: "var(--color-text-strong)", fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", marginBottom: 24 }}>Services</div>
             {"SEO,Social Media,Paid Ads,Content,Web Design,Branding,Events".split(",").map(s => (
               <div key={s} style={{ marginBottom: 12 }}>
-                <a href="#" style={{ color: "var(--color-text-soft)", fontSize: 13, textDecoration: "none", transition: "color 0.2s" }}
-                  onMouseEnter={e => e.target.style.color = "var(--color-accent)"}
-                  onMouseLeave={e => e.target.style.color = "var(--color-text-soft)"}
-                >{s}</a>
+                <Link to="/services" style={{ color: "var(--color-text-soft)", fontSize: 13, textDecoration: "none", transition: "color 0.2s" }}
+                  onMouseEnter={e => e.currentTarget.style.color = "var(--color-accent)"}
+                  onMouseLeave={e => e.currentTarget.style.color = "var(--color-text-soft)"}
+                >{s}</Link>
               </div>
             ))}
           </div>
@@ -80,12 +80,18 @@ export default function Footer() {
           {/* Company */}
           <div>
             <div style={{ color: "var(--color-text-strong)", fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", marginBottom: 24 }}>Company</div>
-            {"About Us,Academy,Blog,Contact,Privacy Policy,Terms".split(",").map(s => (
-              <div key={s} style={{ marginBottom: 12 }}>
-                <a href="#" style={{ color: "var(--color-text-soft)", fontSize: 13, textDecoration: "none", transition: "color 0.2s" }}
-                  onMouseEnter={e => e.target.style.color = "var(--color-accent)"}
-                  onMouseLeave={e => e.target.style.color = "var(--color-text-soft)"}
-                >{s}</a>
+            {[
+              { label: 'About Us', to: '/about' },
+              { label: 'Academy', to: '/course' },
+              { label: 'Contact', to: '/contact-us' },
+              { label: 'Privacy Policy', to: '/privacy-policy' },
+              { label: 'Terms', to: '/terms' },
+            ].map(({ label, to }) => (
+              <div key={label} style={{ marginBottom: 12 }}>
+                <Link to={to} style={{ color: "var(--color-text-soft)", fontSize: 13, textDecoration: "none", transition: "color 0.2s" }}
+                  onMouseEnter={e => e.currentTarget.style.color = "var(--color-accent)"}
+                  onMouseLeave={e => e.currentTarget.style.color = "var(--color-text-soft)"}
+                >{label}</Link>
               </div>
             ))}
           </div>

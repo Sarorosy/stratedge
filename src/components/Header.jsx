@@ -43,7 +43,7 @@ export default function Header() {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
-  const nav = ["About", "Services", "Course", "Blog", "Contact"];
+  const nav = ["About", "Services", "Course", "Contact"];
   const headerTextColor = scrolled ? "var(--color-text-strong)" : "var(--color-text)";
   const headerLinkColor = scrolled ? "var(--color-text-muted)" : "var(--color-text-soft)";
 
@@ -175,11 +175,24 @@ export default function Header() {
       >
         {/* Top */}
         <div>
-          <div style={{ marginBottom: 30 }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 30 }}>
             <img src="/logo.png" style={{ height: 40 , filter: theme === "light"
                   ? "invert(1) brightness(0.2)"
                   : "none"}}  />
-          </div> 
+            <button
+              onClick={() => setOpen(false)}
+              style={{
+                background: "none",
+                border: "none",
+                color: "var(--color-text-strong)",
+                cursor: "pointer",
+                padding: 4,
+              }}
+              aria-label="Close menu"
+            >
+              <X size={24} />
+            </button>
+          </div>
 
           {nav.map((n, i) => (
             <motion.div

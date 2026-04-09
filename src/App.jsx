@@ -5,13 +5,16 @@ import AppRouter from "./routes/AppRouter";
 import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "./utils/idb.jsx";
 import { Tooltip } from "react-tooltip";
+import { HelmetProvider } from "react-helmet-async";
 
 function App() {
   return (
     <>
-      <AuthProvider>
-        <AppRouter />
-      </AuthProvider>
+      <HelmetProvider>
+        <AuthProvider>
+          <AppRouter />
+        </AuthProvider>
+      </HelmetProvider>
       <Tooltip id="my-tooltip" />
       <Toaster
         position="bottom-left"

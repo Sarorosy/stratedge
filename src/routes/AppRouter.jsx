@@ -10,12 +10,16 @@ import AboutUs from "../pages/AboutUs";
 import Services from "../pages/Services";
 import Course from "../pages/Course";
 import ContactUs from "../pages/ContactUs";
+import SplashCursor from "../components/SplashCursor";
+import Terms from "../pages/Terms";
+import PrivacyPolicy from "../pages/PrivacyPolicy";
 
 
 export default function AppRouter() {
   return (
     <Router>
       <ScrollToTop />
+      <SplashCursor />
       <Routes>
         <Route element={<PrivateRoute />}>
           <Route element={<Layout />}>
@@ -24,6 +28,8 @@ export default function AppRouter() {
             <Route path="/services" element={<Services />} />
             <Route path="/course" element={<Course />} />
             <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
 
           </Route>
         </Route>

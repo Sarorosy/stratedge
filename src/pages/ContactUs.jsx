@@ -4,6 +4,9 @@ import {
   MessageCircle, Send, Facebook, Instagram, Youtube,
   ChevronDown, ChevronUp, CheckCircle
 } from "lucide-react";
+import BlurText from "../components/BlurText";
+import WhatsappFloat from "../components/WhatsappFloat";
+import useSEO from "../hooks/useSEO";
 
 const WA = "https://wa.me/918122652903";
 
@@ -65,16 +68,28 @@ function Hero() {
           </span>
         </div>
 
-        <h1 style={{
-          fontFamily: "'Playfair Display',serif",
-          fontSize: "clamp(48px,6vw,80px)",
-          fontWeight: 900, color: "var(--color-text-strong)",
-          lineHeight: 1.05, marginBottom: 24, letterSpacing: -1,
-          maxWidth: 700,
-        }}>
-          Get in <span style={{ color: "var(--color-accent)" }}>Touch</span><br />
-          With Us.
-        </h1>
+        <BlurText
+          text="Get in Touch With Us"
+          className="h1-blur-contact"
+          animateBy="words"
+          direction="top"
+          delay={200}
+        />
+        <style>{`
+          .h1-blur-contact {
+            font-family: 'Playfair Display',serif !important;
+            font-size: clamp(48px, 6vw, 80px) !important;
+            font-weight: 900 !important;
+            color: var(--color-text-strong) !important;
+            line-height: 1.05 !important;
+            margin-bottom: 24px !important;
+            letter-spacing: -1px !important;
+            max-width: 700px !important;
+          }
+          .h1-blur-contact .word:nth-child(3) {
+            color: var(--color-accent) !important;
+          }
+        `}</style>
 
         <p style={{ color: "var(--color-text-soft)", fontSize: 16, lineHeight: 1.85, maxWidth: 500, fontWeight: 300 }}>
           Ready to grow your business? Let's talk. Our team is available Monday – Saturday, 8:00 AM – 5:00 PM.
@@ -149,14 +164,27 @@ function ContactSection() {
 
           {/* Left – Contact Form */}
           <div>
-            <h2 style={{
-              fontFamily: "'Playfair Display',serif",
-              fontSize: "clamp(32px,4vw,48px)", fontWeight: 700,
-              color: "var(--color-text-strong)", lineHeight: 1.15, marginBottom: 16, letterSpacing: -0.5,
-            }}>
-              Send Us a<br />
-              <span style={{ color: "var(--color-accent)" }}>Message.</span>
-            </h2>
+            <BlurText
+              text="Send Us a Message"
+              className="h2-blur-contact"
+              animateBy="words"
+              direction="top"
+              delay={200}
+            />
+            <style>{`
+              .h2-blur-contact {
+                font-family: 'Playfair Display',serif !important;
+                font-size: clamp(32px, 4vw, 48px) !important;
+                font-weight: 700 !important;
+                color: var(--color-text-strong) !important;
+                line-height: 1.15 !important;
+                margin-bottom: 16px !important;
+                letter-spacing: -0.5px !important;
+              }
+              .h2-blur-contact .word:nth-child(4) {
+                color: var(--color-accent) !important;
+              }
+            `}</style>
             <p style={{ color: "var(--color-text-soft)", fontSize: 15, lineHeight: 1.85, fontWeight: 300, marginBottom: 40 }}>
               Fill in the form and our team will get back to you within one business day.
             </p>
@@ -239,14 +267,27 @@ function ContactSection() {
 
           {/* Right – Info + Socials */}
           <div>
-            <h2 style={{
-              fontFamily: "'Playfair Display',serif",
-              fontSize: "clamp(32px,4vw,48px)", fontWeight: 700,
-              color: "var(--color-text-strong)", lineHeight: 1.15, marginBottom: 16, letterSpacing: -0.5,
-            }}>
-              Our Office.<br />
-              <span style={{ color: "var(--color-accent)" }}>Find Us.</span>
-            </h2>
+            <BlurText
+              text="Our Office Find Us"
+              className="h2-blur-office"
+              animateBy="words"
+              direction="top"
+              delay={200}
+            />
+            <style>{`
+              .h2-blur-office {
+                font-family: 'Playfair Display',serif !important;
+                font-size: clamp(32px, 4vw, 48px) !important;
+                font-weight: 700 !important;
+                color: var(--color-text-strong) !important;
+                line-height: 1.15 !important;
+                margin-bottom: 16px !important;
+                letter-spacing: -0.5px !important;
+              }
+              .h2-blur-office .word:nth-child(3) {
+                color: var(--color-accent) !important;
+              }
+            `}</style>
             <p style={{ color: "var(--color-text-soft)", fontSize: 15, lineHeight: 1.85, fontWeight: 300, marginBottom: 40 }}>
               We're based in Chennai — visit us, call us, or drop a message on WhatsApp.
             </p>
@@ -485,40 +526,25 @@ function CTA() {
 /* ═══════════════════════════════════════════════
    FLOATING WHATSAPP
 ═══════════════════════════════════════════════ */
-function WhatsAppFloat() {
-  return (
-    <a href={WA} target="_blank" rel="noopener noreferrer" style={{
-      position: "fixed", bottom: 32, right: 32, zIndex: 200,
-      background: "var(--color-accent)", color: "var(--color-accent-contrast)",
-      width: 54, height: 54,
-      display: "flex", alignItems: "center", justifyContent: "center",
-      boxShadow: "var(--color-shadow)",
-      transition: "transform 0.2s",
-      textDecoration: "none",
-    }}
-      onMouseEnter={e => e.currentTarget.style.transform = "scale(1.1)"}
-      onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
-    >
-      <MessageCircle size={24} fill="currentColor" />
-    </a>
-  );
-}
+
 
 /* ═══════════════════════════════════════════════
    PAGE
 ═══════════════════════════════════════════════ */
 export default function ContactUs() {
+  const { component: seoComponent } = useSEO('contact');
   useGoogleFonts();
 
   return (
     <div style={{ background: "transparent", minHeight: "100vh" }}>
+      {seoComponent}
       <Hero />
       <Marquee />
       <ContactSection />
       <MapSection />
       <FAQ />
       <CTA />
-      <WhatsAppFloat />
+      <WhatsappFloat />
     </div>
   );
 }

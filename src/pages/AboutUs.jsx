@@ -6,6 +6,9 @@ import {
 } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import BlurText from "../components/BlurText";
+import WhatsappFloat from "../components/WhatsappFloat";
+import useSEO from "../hooks/useSEO";
 
 const WA = "https://wa.me/918122652903";
 
@@ -28,7 +31,7 @@ function useGoogleFonts() {
 ═══════════════════════════════════════════════ */
 function Hero() {
   return (
-    <section style={{
+    <section className="hero-section" style={{
       background: "var(--color-bg)",
       color: "var(--color-text)",
       minHeight: "60vh",
@@ -40,20 +43,20 @@ function Hero() {
       paddingTop: 100,
     }}>
       {/* BG texture grid */}
-      <div style={{
+      <div className="hero-grid-texture" style={{
         position: "absolute", inset: 0,
         backgroundImage: "linear-gradient(rgba(139,92,246,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,0.04) 1px,transparent 1px)",
         backgroundSize: "80px 80px",
       }} />
       {/* Accent glow top-right */}
-      <div style={{
+      <div className="hero-glow" style={{
         position: "absolute", top: -100, right: -100,
         width: 600, height: 600,
         background: "radial-gradient(circle,rgba(139,92,246,0.1) 0%,transparent 65%)",
         pointerEvents: "none",
       }} />
       {/* Thin diagonal accent line */}
-      <div style={{
+      <div className="hero-line" style={{
         position: "absolute", top: 0, right: "40%", bottom: 0,
         width: 1, background: "linear-gradient(to bottom,transparent,rgba(139,92,246,0.25),transparent)",
       }} />
@@ -77,15 +80,25 @@ function Hero() {
           </span>
         </div>
 
-        <h1 style={{
-          fontFamily: "'Playfair Display',serif",
-          fontSize: "clamp(42px,6vw,72px)",
-          fontWeight: 900, color: "var(--color-text-strong)",
-          lineHeight: 1.08, marginBottom: 24, letterSpacing: -1,
-          maxWidth: 700,
-        }}>
-          Who We Are
-        </h1>
+        <BlurText
+          text="Who We Are"
+          className="h1-blur-about"
+          animateBy="words"
+          direction="top"
+          delay={200}
+        />
+        <style>{`
+          .h1-blur-about {
+            font-family: 'Playfair Display',serif !important;
+            font-size: clamp(42px, 6vw, 72px) !important;
+            font-weight: 900 !important;
+            color: var(--color-text-strong) !important;
+            line-height: 1.08 !important;
+            margin-bottom: 24px !important;
+            letter-spacing: -1px !important;
+            max-width: 700px !important;
+          }
+        `}</style>
 
         <p style={{
           color: "var(--color-text-soft)", fontSize: 17, lineHeight: 1.85,
@@ -106,7 +119,7 @@ function Hero() {
 function Marquee() {
   const items = ["Innovation", "Integrity", "Impact", "Inclusivity", "Chennai", "Growth", "Strategy", "Results"];
   return (
-    <div style={{ background: "var(--color-accent)", overflow: "hidden", padding: "14px 0", position: "relative" }}>
+    <div className="marquee" style={{ background: "var(--color-accent)", overflow: "hidden", padding: "14px 0", position: "relative" }}>
       <div style={{ display: "flex", gap: 0, animation: "marquee 24s linear infinite", whiteSpace: "nowrap" }}>
         {[...items, ...items, ...items].map((item, i) => (
           <span key={i} style={{
@@ -129,7 +142,7 @@ function Marquee() {
 ═══════════════════════════════════════════════ */
 function OurStory() {
   return (
-    <section style={{ background: "var(--color-surface-alt)", padding: "100px 0", fontFamily: "'DM Sans',sans-serif" }}>
+    <section id="about-story" className="story-section" style={{ background: "var(--color-surface-alt)", padding: "100px 0", fontFamily: "'DM Sans',sans-serif" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 40px" }}>
 
         <div style={{ display: "flex", alignItems: "center", gap: 20, marginBottom: 70 }}>
@@ -137,17 +150,33 @@ function OurStory() {
           <span style={{ color: "var(--color-accent)", fontSize: 10, letterSpacing: 4, textTransform: "uppercase", fontWeight: 600 }}>Our Story</span>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 100, alignItems: "start" }}>
+        <div className="story-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 100, alignItems: "start" }}>
           {/* Left */}
           <div>
-            <h2 style={{
-              fontFamily: "'Playfair Display',serif",
-              fontSize: "clamp(34px,4vw,50px)", fontWeight: 700,
-              color: "var(--color-text-strong)", lineHeight: 1.15, marginBottom: 28, letterSpacing: -0.5,
-            }}>
-              Born in Chennai.<br />
-              <span style={{ color: "var(--color-accent)" }}>Built for Results.</span>
-            </h2>
+            <BlurText
+              text="Born in Chennai Built for Results"
+              className="h2-blur-story"
+              animateBy="words"
+              direction="top"
+              delay={200}
+            />
+            <style>{`
+              .h2-blur-story {
+                font-family: 'Playfair Display',serif !important;
+                font-size: clamp(34px, 4vw, 50px) !important;
+                font-weight: 700 !important;
+                color: var(--color-text-strong) !important;
+                line-height: 1.15 !important;
+                margin-bottom: 28px !important;
+                letter-spacing: -0.5px !important;
+              }
+              .h2-blur-story .word:nth-child(4) {
+                color: var(--color-accent) !important;
+              }
+              .h2-blur-story .word:nth-child(5) {
+                color: var(--color-accent) !important;
+              }
+            `}</style>
 
             <p style={{ color: "var(--color-text-soft)", lineHeight: 1.9, fontSize: 15, marginBottom: 28, fontWeight: 300 }}>
               Founded in Chennai, The Stratedgee was born from a simple belief — that every business, big or small, deserves powerful digital marketing that drives real results. Starting with a small but dedicated team, we have grown to serve 30+ satisfied clients across industries, completing 50+ projects with measurable impact.
@@ -254,7 +283,7 @@ function MissionVision() {
           <span style={{ color: "var(--color-accent)", fontSize: 10, letterSpacing: 4, textTransform: "uppercase", fontWeight: 600 }}>Purpose & Direction</span>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 3 }}>
+        <div className="mv-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 3 }}>
           {[
             {
               label: "Our Mission",
@@ -338,15 +367,29 @@ function CoreValues() {
         </div>
 
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 60, flexWrap: "wrap", gap: 16 }}>
-          <h2 style={{ fontFamily: "'Playfair Display',serif", fontSize: "clamp(32px,4vw,48px)", fontWeight: 700, color: "var(--color-text-strong)", lineHeight: 1.15, letterSpacing: -0.5 }}>
-            Core Values
-          </h2>
+          <BlurText
+            text="Core Values"
+            className="h2-blur-values"
+            animateBy="words"
+            direction="top"
+            delay={200}
+          />
+          <style>{`
+            .h2-blur-values {
+              font-family: 'Playfair Display',serif !important;
+              font-size: clamp(32px, 4vw, 48px) !important;
+              font-weight: 700 !important;
+              color: var(--color-text-strong) !important;
+              line-height: 1.15 !important;
+              letter-spacing: -0.5px !important;
+            }
+          `}</style>
           <p style={{ color: "var(--color-text-soft)", fontSize: 14, maxWidth: 360, lineHeight: 1.7, fontWeight: 300 }}>
             The principles that guide every campaign, every client call, and every decision we make.
           </p>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 2 }}>
+        <div className="values-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 2 }}>
           {values.map(({ icon: Icon, num, label, desc }) => (
             <div
               key={num}
@@ -420,7 +463,7 @@ function Milestones() {
         {/* Timeline */}
         <div style={{ position: "relative" }}>
           {/* Vertical spine */}
-          <div style={{
+          <div className="milestones-spine" style={{
             position: "absolute", left: 100, top: 0, bottom: 0, width: 1,
             background: "linear-gradient(to bottom,transparent,var(--color-border),transparent)",
           }} />
@@ -515,7 +558,7 @@ function Team() {
           </p>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 2 }}>
+        <div className="team-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 2 }}>
           {team.map(({ name, role, initials, bio, highlight }) => (
             <div
               key={name}
@@ -580,7 +623,7 @@ function FounderSpotlight() {
           <span style={{ color: "var(--color-accent)", fontSize: 10, letterSpacing: 4, textTransform: "uppercase", fontWeight: 600 }}>About the Founder</span>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: 80, alignItems: "center" }}>
+        <div className="founder-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: 80, alignItems: "center" }}>
           {/* Left – founder card */}
           <div>
             <div style={{
@@ -729,43 +772,51 @@ function CTA() {
 /* ═══════════════════════════════════════════════
    FLOATING WHATSAPP
 ═══════════════════════════════════════════════ */
-function WhatsAppFloat() {
-  return (
-    <a href={WA} target="_blank" rel="noopener noreferrer" style={{
-      position: "fixed", bottom: 32, right: 32, zIndex: 200,
-      background: "var(--color-accent)", color: "var(--color-accent-contrast)",
-      width: 54, height: 54,
-      display: "flex", alignItems: "center", justifyContent: "center",
-      boxShadow: "var(--color-shadow)",
-      transition: "transform 0.2s, box-shadow 0.2s",
-      textDecoration: "none",
-    }}
-      onMouseEnter={e => e.currentTarget.style.transform = "scale(1.1)"}
-      onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
-    >
-      <MessageCircle size={24} fill="currentColor" />
-    </a>
-  );
-}
+
 
 /* ═══════════════════════════════════════════════
    PAGE
 ═══════════════════════════════════════════════ */
 export default function AboutUs() {
+  const { component: seoComponent } = useSEO('about');
   useGoogleFonts();
 
   return (
     <div style={{ background: "transparent", minHeight: "100vh" }}>
+      <style>{`
+        /* Responsive adjustments for About page */
+        .hero-section { padding-top: 100px; }
+        @media (max-width:900px) {
+          .story-grid, .mv-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
+          .values-grid { grid-template-columns: repeat(2,1fr) !important; }
+          .team-grid { grid-template-columns: repeat(2,1fr) !important; }
+          .founder-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
+          .milestones-spine { left: 40px !important; }
+          .hero-section { padding-top: 60px !important; }
+        }
+        @media (max-width:600px) {
+          .values-grid, .team-grid { grid-template-columns: 1fr !important; }
+          .hero-grid-texture, .hero-glow, .hero-line { display: none !important; }
+          .hero-section { padding-top: 40px !important; min-height: auto !important; }
+          .h1-blur-about { font-size: clamp(28px, 10vw, 42px) !important; }
+          .h2-blur-story, .h2-blur-values { font-size: clamp(22px, 8vw, 36px) !important; }
+          .mv-grid { gap: 24px !important; }
+          section { padding: 60px 20px !important; }
+          .marquee { font-size: 10px !important; }
+          .milestones-spine { left: 20px !important; }
+        }
+      `}</style>
+      {seoComponent}
       <Hero />
       <Marquee />
       <OurStory />
       <MissionVision />
       <CoreValues />
       <Milestones />
-      <Team />
+      {/* <Team /> */}
       <FounderSpotlight />
       <CTA />
-      <WhatsAppFloat />
+      <WhatsappFloat />
     </div>
   );
 }

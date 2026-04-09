@@ -6,6 +6,9 @@ import {
 } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import BlurText from "../components/BlurText";
+import WhatsappFloat from "../components/WhatsappFloat";
+import useSEO from "../hooks/useSEO";
 
 const WA = "https://wa.me/918122652903";
 
@@ -28,7 +31,7 @@ function useGoogleFonts() {
 ═══════════════════════════════════════════════ */
 function Hero() {
   return (
-    <section style={{
+    <section className="services-hero" style={{
       background: "var(--color-bg)",
       color: "var(--color-text)",
       minHeight: "60vh",
@@ -77,15 +80,25 @@ function Hero() {
           </span>
         </div>
 
-        <h1 style={{
-          fontFamily: "'Playfair Display',serif",
-          fontSize: "clamp(42px,6vw,72px)",
-          fontWeight: 900, color: "var(--color-text-strong)",
-          lineHeight: 1.08, marginBottom: 24, letterSpacing: -1,
-          maxWidth: 700,
-        }}>
-          Our Services
-        </h1>
+        <BlurText
+          text="Our Services"
+          className="h1-blur-services"
+          animateBy="words"
+          direction="top"
+          delay={200}
+        />
+        <style>{`
+          .h1-blur-services {
+            font-family: 'Playfair Display',serif !important;
+            font-size: clamp(42px, 6vw, 72px) !important;
+            font-weight: 900 !important;
+            color: var(--color-text-strong) !important;
+            line-height: 1.08 !important;
+            margin-bottom: 24px !important;
+            letter-spacing: -1px !important;
+            max-width: 700px !important;
+          }
+        `}</style>
 
         <p style={{
           color: "var(--color-text-soft)", fontSize: 17, lineHeight: 1.85,
@@ -97,6 +110,11 @@ function Hero() {
       </div>
 
       <style>{`@media(max-width:600px){h1{font-size:clamp(32px,8vw,52px)!important;}}`}</style>
+      <style>{`
+        .services-hero{padding-top:100px;padding-bottom:80px}
+        @media(max-width:900px){.services-hero{padding-top:80px!important;padding-bottom:56px!important}}
+        @media(max-width:600px){.services-hero{padding-top:56px!important;padding-bottom:40px!important}.h1-blur-services{font-size:clamp(28px,8vw,44px)!important;max-width:100%!important;padding-right:20px!important}}
+      `}</style>
     </section>
   );
 }
@@ -255,12 +273,11 @@ function ServicesGrid() {
           </p>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+        <div className="services-grid" style={{ display: "flex", flexDirection: "column", gap: 2 }}>
           {SERVICES.map(({ num, icon: Icon, label, short, desc, deliverables }) => {
             const isOpen = expanded === num;
             return (
-              <div
-                key={num}
+              <div key={num} className="service-item"
                 style={{
                   background: isOpen ? "var(--color-surface-strong)" : "var(--color-surface-alt)",
                   border: isOpen ? "1px solid var(--color-border-strong)" : "1px solid var(--color-border-soft)",
@@ -276,7 +293,7 @@ function ServicesGrid() {
                 }} />
 
                 {/* Header row */}
-                <button
+                <button className="service-button"
                   onClick={() => setExpanded(isOpen ? null : num)}
                   style={{
                     width: "100%", display: "flex", alignItems: "center", gap: 28,
@@ -325,7 +342,7 @@ function ServicesGrid() {
 
                 {/* Expanded content */}
                 {isOpen && (
-                  <div style={{ padding: "0 36px 40px 36px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "start" }}>
+                  <div className="service-expanded-grid" style={{ padding: "0 36px 40px 36px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "start" }}>
                     {/* Description */}
                     <div>
                       <p style={{ color: "var(--color-text-soft)", fontSize: 15, lineHeight: 1.9, fontWeight: 300, marginBottom: 28 }}>
@@ -372,7 +389,18 @@ function ServicesGrid() {
           })}
         </div>
       </div>
-      <style>{`@media(max-width:768px){.service-expanded-grid{grid-template-columns:1fr!important;}}`}</style>
+      <style>{`
+        @media(max-width:1024px){.services-grid{padding:0 14px}}
+        @media(max-width:768px){
+          .service-expanded-grid{grid-template-columns:1fr!important}
+          .service-item{padding:12px!important}
+          .service-button{padding:18px 16px!important}
+          .service-button > div[style]{display:flex}
+        }
+        @media(max-width:480px){
+          .service-button{gap:12px!important}
+        }
+      `}</style>
     </section>
   );
 }
@@ -433,7 +461,7 @@ function WhyUs() {
           </p>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 2 }}>
+        <div className="whyus-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 2 }}>
           {reasons.map(({ num, label, desc }) => (
             <div
               key={num}
@@ -541,7 +569,7 @@ function Pricing() {
           </p>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 2 }}>
+        <div className="pricing-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 2 }}>
           {plans.map(({ name, tagline, highlight, features }) => (
             <div
               key={name}
@@ -641,7 +669,7 @@ function StatsStrip() {
 
   return (
     <section style={{ background: "var(--color-bg)", borderTop: "1px solid var(--color-border-soft)", borderBottom: "1px solid var(--color-border-soft)", fontFamily: "'DM Sans',sans-serif" }}>
-      <div style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 1, background: "var(--color-border-soft)" }}>
+      <div className="stats-grid" style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 1, background: "var(--color-border-soft)" }}>
         {stats.map(({ n, l }) => (
           <div key={n} style={{
             background: "var(--color-bg)", padding: "48px 36px",
@@ -656,6 +684,7 @@ function StatsStrip() {
           </div>
         ))}
       </div>
+      <style>{`@media(max-width:900px){.stats-grid{grid-template-columns:repeat(2,1fr)!important}}@media(max-width:600px){.stats-grid{grid-template-columns:repeat(2,1fr)!important}}@media(max-width:360px){.stats-grid{grid-template-columns:1fr!important}}`}</style>
     </section>
   );
 }
@@ -687,7 +716,7 @@ function CTA() {
         <p style={{ color: "rgba(255,255,255,0.7)", fontSize: 16, marginBottom: 44, fontWeight: 300 }}>
           Talk to our experts and get a free customised digital strategy for your business.
         </p>
-        <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
+        <div className="cta-actions" style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
           <a href={WA} target="_blank" rel="noopener noreferrer" style={{
             display: "inline-flex", alignItems: "center", gap: 10,
             background: "var(--color-accent-contrast)", color: "var(--color-accent)",
@@ -709,6 +738,7 @@ function CTA() {
             <Phone size={14} /> +91 8122652903
           </a>
         </div>
+      <style>{`@media(max-width:600px){.cta-actions{flex-direction:column!important;gap:12px!important}.cta-actions a{width:100%!important;justify-content:center!important}}`}</style>
       </div>
     </section>
   );
@@ -717,33 +747,18 @@ function CTA() {
 /* ═══════════════════════════════════════════════
    FLOATING WHATSAPP
 ═══════════════════════════════════════════════ */
-function WhatsAppFloat() {
-  return (
-    <a href={WA} target="_blank" rel="noopener noreferrer" style={{
-      position: "fixed", bottom: 32, right: 32, zIndex: 200,
-      background: "var(--color-accent)", color: "var(--color-accent-contrast)",
-      width: 54, height: 54,
-      display: "flex", alignItems: "center", justifyContent: "center",
-      boxShadow: "var(--color-shadow)",
-      transition: "transform 0.2s, box-shadow 0.2s",
-      textDecoration: "none",
-    }}
-      onMouseEnter={e => e.currentTarget.style.transform = "scale(1.1)"}
-      onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
-    >
-      <MessageCircle size={24} fill="currentColor" />
-    </a>
-  );
-}
+
 
 /* ═══════════════════════════════════════════════
    PAGE
 ═══════════════════════════════════════════════ */
 export default function Services() {
+  const { component: seoComponent } = useSEO('services');
   useGoogleFonts();
 
   return (
     <div style={{ background: "transparent", minHeight: "100vh" }}>
+      {seoComponent}
       <Hero />
       <Marquee />
       <ServicesGrid />
@@ -751,7 +766,7 @@ export default function Services() {
       <WhyUs />
       <Pricing />
       <CTA />
-      <WhatsAppFloat />
+      <WhatsappFloat />
     </div>
   );
 }

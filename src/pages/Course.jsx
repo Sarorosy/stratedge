@@ -4,6 +4,9 @@ import {
   Users, Award, Clock, Play, MessageCircle, Phone,
   Monitor, Wifi, Video, ChevronDown, ChevronUp
 } from "lucide-react";
+import BlurText from "../components/BlurText";
+import WhatsappFloat from "../components/WhatsappFloat";
+import useSEO from "../hooks/useSEO";
 
 const WA = "https://wa.me/918122652903";
 
@@ -70,16 +73,30 @@ function Hero() {
               </span>
             </div>
 
-            <h1 style={{
-              fontFamily: "'Playfair Display',serif",
-              fontSize: "clamp(40px,5vw,68px)",
-              fontWeight: 900, color: "var(--color-text-strong)",
-              lineHeight: 1.08, marginBottom: 28, letterSpacing: -1,
-            }}>
-              Learn. Practice.<br />
-              <span style={{ color: "var(--color-accent)" }}>Get Certified.</span><br />
-              Launch Your Career.
-            </h1>
+            <BlurText
+              text="Learn Practice Get Certified Launch Your Career"
+              className="h1-blur-course"
+              animateBy="words"
+              direction="top"
+              delay={200}
+            />
+            <style>{`
+              .h1-blur-course {
+                font-family: 'Playfair Display',serif !important;
+                font-size: clamp(40px, 5vw, 68px) !important;
+                font-weight: 900 !important;
+                color: var(--color-text-strong) !important;
+                line-height: 1.08 !important;
+                margin-bottom: 28px !important;
+                letter-spacing: -1px !important;
+              }
+              .h1-blur-course .word:nth-child(3) {
+                color: var(--color-accent) !important;
+              }
+              .h1-blur-course .word:nth-child(4) {
+                color: var(--color-accent) !important;
+              }
+            `}</style>
 
             <p style={{ color: "var(--color-text-soft)", fontSize: 16, lineHeight: 1.85, maxWidth: 460, marginBottom: 44, fontWeight: 300 }}>
               Expert-led digital marketing courses with hands-on training, real-world strategies, and industry-recognized certifications. Offline, Online & Self-paced.
@@ -665,33 +682,18 @@ function CTA() {
 /* ═══════════════════════════════════════════════
    FLOATING WHATSAPP
 ═══════════════════════════════════════════════ */
-function WhatsAppFloat() {
-  return (
-    <a href={WA} target="_blank" rel="noopener noreferrer" style={{
-      position: "fixed", bottom: 32, right: 32, zIndex: 200,
-      background: "var(--color-accent)", color: "var(--color-accent-contrast)",
-      width: 54, height: 54,
-      display: "flex", alignItems: "center", justifyContent: "center",
-      boxShadow: "var(--color-shadow)",
-      transition: "transform 0.2s",
-      textDecoration: "none",
-    }}
-      onMouseEnter={e => e.currentTarget.style.transform = "scale(1.1)"}
-      onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
-    >
-      <MessageCircle size={24} fill="currentColor" />
-    </a>
-  );
-}
+
 
 /* ═══════════════════════════════════════════════
    PAGE
 ═══════════════════════════════════════════════ */
 export default function Course() {
+  const { component: seoComponent } = useSEO('course');
   useGoogleFonts();
 
   return (
     <div style={{ background: "transparent", minHeight: "100vh" }}>
+      {seoComponent}
       <Hero />
       <Marquee />
       <AboutAcademy />
@@ -700,7 +702,7 @@ export default function Course() {
       <WhyUs />
       <Testimonials />
       <CTA />
-      <WhatsAppFloat />
+      <WhatsappFloat />
     </div>
   );
 }

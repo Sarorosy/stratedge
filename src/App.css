@@ -2,8 +2,43 @@
   max-width: 100%;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;700&family=Syne:wght@400;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap");
 
-body{
-  font-family: "Syne", "Plus Jakarta Sans", sans-serif;
+/* Default body font */
+body {
+  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+}
+
+/* Hero headlines and section titles */
+h1, h2, h3 {
+  font-family: "Clash Display", "Plus Jakarta Sans", sans-serif;
+  font-weight: 700;
+}
+
+h4, h5, h6 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 600;
+}
+
+/* Accent text, numbers, stats, callouts */
+.accent-text,
+.stat-number,
+.eyebrow-label,
+[class*="counter"],
+[class*="number"] {
+  font-family: "Syne", monospace;
+  font-weight: 700;
+}
+
+/* Forms and UI elements */
+input,
+textarea,
+select,
+button {
+  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+}
+
+/* Footer */
+footer {
+  font-family: "Inter", "Plus Jakarta Sans", sans-serif;
 }
