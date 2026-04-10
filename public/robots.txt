@@ -1,0 +1,10 @@
+# Allow all bots to crawl the site
+User-agent: *
+Allow: /
+
+# Disallow admin or dashboard areas if needed
+# Uncomment the line below if you want to prevent indexing of the dashboard
+# Disallow: /dashboard
+
+# Sitemap location
+Sitemap: https://stratedge.com/sitemap.xml

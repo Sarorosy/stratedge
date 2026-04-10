@@ -326,10 +326,10 @@ Headline: Get in Touch
 Sub-headline: Ready to grow your business? Let's talk.
 Contact Details
 Detail	Value
-Office Address	4/34, 40th St, D type, Sidco Nagar, Villivakkam, Chennai, Tamil Nadu 600049
-Phone 1	+91 8122652903
-Phone 2	+91 93611 10910
-Email	admin@thestratedgee.com
+Office Address	4/34, D type, Sidco Nagar, 40th Street, Villivakkam, Chennai — 600049, Tamil Nadu, IN
+Phone	+91 9361110910
+Email	info@thestratedgee.com
+Working Hours	Open 24/7 — All days 00:00–23:59
 Working Hours	Monday – Saturday, 8:00 AM – 5:00 PM
 WhatsApp	Click to Chat: +91 8122652903
 Contact Form Fields
@@ -340,9 +340,11 @@ Contact Form Fields
 •	Submit button → sends to admin@thestratedgee.com
 Social Media Links
 Platform	URL
-Facebook	https://www.facebook.com/share/v/1Lr5Pty1S8/
+Facebook	https://www.facebook.com/reel/1386312546160620
 Instagram	https://www.instagram.com/the_stratedge/
-YouTube	https://www.youtube.com/channel/UCCtbaoyWA3y9GB2WFcYDXEQ
+LinkedIn	https://www.linkedin.com/feed/update/urn:li:activity:7379807340633546753
+Twitter/X	https://x.com/thestratedge/status/1974041702210896056
+YouTube	https://youtube.com/shorts/YF5ibYMuUig?feature=share
 Map Section
 Embed Google Map showing: Sidco Nagar, Villivakkam, Chennai, Tamil Nadu 600049
 FAQ Section (Recommended)

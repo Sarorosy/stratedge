@@ -10,7 +10,7 @@ import BlurText from "../components/BlurText";
 import WhatsappFloat from "../components/WhatsappFloat";
 import useSEO from "../hooks/useSEO";
 
-const WA = "https://wa.me/918122652903";
+const WA = "https://wa.me/919361110910";
 
 /* ── Google Fonts injected once ── */
 function useGoogleFonts() {
@@ -755,13 +755,13 @@ function CTA() {
           >
             <MessageCircle size={15} /> Free Consultation
           </a>
-          <a href="tel:+918122652903" style={{
+          <a href="tel:+919361110910" style={{
             display: "inline-flex", alignItems: "center", gap: 10,
             border: "1px solid rgba(255,255,255,0.4)", color: "var(--color-accent-contrast)",
             padding: "16px 40px", fontSize: 12, fontWeight: 600,
             letterSpacing: 2, textTransform: "uppercase", textDecoration: "none",
           }}>
-            <Phone size={14} /> +91 8122652903
+            <Phone size={14} /> +91 9361110910
           </a>
         </div>
       </div>

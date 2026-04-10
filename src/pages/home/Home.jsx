@@ -1174,24 +1174,6 @@ function AcademyPromo() {
                 Enroll Now <ArrowRight size={14} />
               </a>
 
-              <button style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 8,
-                background: "transparent",
-                border: "1px solid var(--color-border)",
-                color: "var(--color-accent)",
-                padding: "14px",
-                fontSize: 12,
-                fontWeight: 600,
-                letterSpacing: 1.5,
-                textTransform: "uppercase",
-                cursor: "pointer",
-                width: "100%"
-              }}>
-                View Syllabus
-              </button>
             </div>
           </div>
         </div>

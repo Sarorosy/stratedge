@@ -1,12 +1,15 @@
-import { Zap, Facebook, Instagram, Youtube, MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { Zap, Facebook, Instagram, Youtube, Linkedin, Send } from "lucide-react";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { Twitter } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 /* ═══════════════════════════════════════════════
    FOOTER
 ═══════════════════════════════════════════════ */
 export default function Footer() {
-  const WA = "https://wa.me/918122652903";
+  const WA = "https://wa.me/919361110910";
   const brandGradient = "linear-gradient(135deg,var(--color-accent),var(--color-accent-strong))";
 
   const theme = document.documentElement.getAttribute("data-theme");
@@ -16,8 +19,64 @@ export default function Footer() {
         window.localStorage.setItem("theme", theme);
       }, [theme]);
 
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://thestratedgee.com/#localbusiness",
+    "name": "The Stratedge Digital Marketing & Event Management Agency",
+    "url": "https://thestratedgee.com/",
+    "telephone": "9361110910",
+    "email": "info@thestratedgee.com",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "4/34, D type, Sidco Nagar, 40th street, Villivakkam",
+      "addressLocality": "Chennai",
+      "addressRegion": "Tamil Nadu",
+      "postalCode": "600049",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 13.1070841,
+      "longitude": 80.2033821
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+    "areaServed": "India",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "63"
+    },
+    "review": [{
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Rajendra Prasad" },
+      "datePublished": "2025-01-15",
+      "reviewBody": "The Stratedge team helped us grow our brand visibility...",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+    }],
+    "sameAs": [
+      "https://youtube.com/shorts/YF5ibYMuUig",
+      "https://www.facebook.com/reel/1386312546160620",
+      "https://x.com/thestratedge",
+      "https://www.linkedin.com/company/thestratedge",
+      "https://www.instagram.com/the_stratedge/"
+    ]
+  };
+
   return (
-    <footer style={{ background: "var(--color-surface-alt)", borderTop: "1px solid var(--color-border)", fontFamily: "'DM Sans',sans-serif" }}>
+    <>
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(localBusinessSchema)}
+        </script>
+      </Helmet>
+      <footer style={{ background: "var(--color-surface-alt)", borderTop: "1px solid var(--color-border)", fontFamily: "'DM Sans',sans-serif" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: "80px 20px 0" }}>
         <div className="footer-grid" style={{
           display: "grid",
@@ -38,6 +97,7 @@ export default function Footer() {
                       ? "invert(1) brightness(0.2)"
                       : "none"
                   }}
+                  alt="Stratedge Logo"
                 />
               </Link>
             </div>
@@ -45,9 +105,11 @@ export default function Footer() {
               Digital Marketing Solution for Your Business — Chennai's trusted growth partner since 2020.
             </p>
             <div style={{ display: "flex", gap: 8 }}>
-              {[{ icon: Facebook, href: "https://www.facebook.com/share/v/1Lr5Pty1S8/" },
+              {[{ icon: Facebook, href: "https://www.facebook.com/reel/1386312546160620" },
               { icon: Instagram, href: "https://www.instagram.com/the_stratedge/" },
-              { icon: Youtube, href: "https://www.youtube.com/channel/UCCtbaoyWA3y9GB2WFcYDXEQ" },
+              { icon: Linkedin, href: "https://www.linkedin.com/feed/update/urn:li:activity:7379807340633546753" },
+              { icon: Twitter, href: "https://x.com/thestratedge/status/1974041702210896056" },
+              { icon: Youtube, href: "https://youtube.com/shorts/YF5ibYMuUig?feature=share" },
               ].map(({ icon: Icon, href }) => (
                 <a key={href} href={href} target="_blank" rel="noopener noreferrer" style={{
                   width: 36, height: 36, border: "1px solid var(--color-border)",
@@ -100,10 +162,10 @@ export default function Footer() {
           <div>
             <div style={{ color: "var(--color-text-strong)", fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", marginBottom: 24 }}>Contact</div>
             <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-              {[{ icon: MapPin, text: "4/34, 40th St, Sidco Nagar, Villivakkam, Chennai 600049" },
-              { icon: Phone, text: "+91 8122652903\n+91 93611 10910" },
-              { icon: Mail, text: "admin@thestratedgee.com" },
-              { icon: Clock, text: "Mon – Sat\n8:00 AM – 5:00 PM" },
+              {[{ icon: MapPin, text: "4/34, D type, Sidco Nagar, 40th Street, Villivakkam, Chennai — 600049, Tamil Nadu, IN" },
+              { icon: Phone, text: "+91 9361110910" },
+              { icon: Mail, text: "info@thestratedgee.com" },
+              { icon: Clock, text: "Open 24/7\n00:00–23:59 All days" },
               ].map(({ icon: Icon, text }) => (
                 <div key={text} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
                   <Icon size={14} color="var(--color-accent)" style={{ marginTop: 2, flexShrink: 0 }} />
@@ -112,23 +174,7 @@ export default function Footer() {
               ))}
             </div>
 
-            {/* Newsletter */}
-            <div style={{ marginTop: 28 }}>
-              <div style={{ color: "var(--color-text-muted)", fontSize: 12, marginBottom: 10 }}>Newsletter</div>
-              <div style={{ display: "flex", gap: 0 }}>
-                <input type="email" placeholder="Your email" style={{
-                  flex: 1, background: "var(--color-surface-muted)", border: "1px solid var(--color-border)",
-                  borderRight: "none", color: "var(--color-text-strong)", padding: "10px 14px", fontSize: 13,
-                  outline: "none", fontFamily: "'DM Sans',sans-serif",
-                }} />
-                <button style={{
-                  background: brandGradient, border: "none", padding: "10px 14px",
-                  cursor: "pointer", display: "flex", alignItems: "center",
-                }}>
-                  <Send size={14} color="var(--color-accent-contrast)" />
-                </button>
-              </div>
-            </div>
+           
           </div>
         </div>
 
@@ -146,5 +192,6 @@ export default function Footer() {
         }
       `}</style>
     </footer>
+    </>
   );
 }

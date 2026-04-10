@@ -92,7 +92,7 @@ function Hero() {
         `}</style>
 
         <p style={{ color: "var(--color-text-soft)", fontSize: 16, lineHeight: 1.85, maxWidth: 500, fontWeight: 300 }}>
-          Ready to grow your business? Let's talk. Our team is available Monday – Saturday, 8:00 AM – 5:00 PM.
+          Ready to grow your business? Let's talk. Our team is available 24/7.
         </p>
       </div>
     </section>
@@ -134,16 +134,16 @@ function ContactSection() {
   const [sent, setSent] = useState(false);
 
   const info = [
-    { icon: MapPin, label: "Office Address", val: "4/34, 40th St, D type, Sidco Nagar, Villivakkam, Chennai, Tamil Nadu 600049" },
-    { icon: Phone, label: "Phone", val: "+91 8122652903 / +91 93611 10910" },
-    { icon: Mail, label: "Email", val: "admin@thestratedgee.com" },
-    { icon: Clock, label: "Working Hours", val: "Monday – Saturday, 8:00 AM – 5:00 PM" },
+    { icon: MapPin, label: "Office Address", val: "4/34, D type, Sidco Nagar, 40th Street, Villivakkam, Chennai — 600049, Tamil Nadu, IN" },
+    { icon: Phone, label: "Phone", val: "+91 9361110910" },
+    { icon: Mail, label: "Email", val: "info@thestratedgee.com" },
+    { icon: Clock, label: "Working Hours", val: "Open 24/7 — All days 00:00–23:59" },
   ];
 
   const socials = [
-    { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/share/v/1Lr5Pty1S8/" },
+    { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/reel/1386312546160620" },
     { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/the_stratedge/" },
-    { icon: Youtube, label: "YouTube", href: "https://www.youtube.com/channel/UCCtbaoyWA3y9GB2WFcYDXEQ" },
+    { icon: Youtube, label: "YouTube", href: "https://youtube.com/shorts/YF5ibYMuUig?feature=share" },
   ];
 
   const handleSubmit = (e) => {
@@ -395,10 +395,12 @@ function MapSection() {
 function FAQ() {
   const [openIdx, setOpenIdx] = useState(null);
   const faqs = [
-    { q: "What services do you offer?", a: "We offer SEO, social media marketing, paid ads, content marketing, web design, branding, event management, and digital marketing training." },
-    { q: "Do you work with startups?", a: "Yes! We have tailored packages for startups, SMEs, and enterprises of all sizes. Our strategies are built to scale with your business." },
-    { q: "How do I enroll in the digital marketing course?", a: "Contact us via WhatsApp or the contact form and our team will guide you through the enrollment process — including format selection and schedule." },
-    { q: "Do you provide reports and analytics?", a: "Yes. Monthly performance reports are included in all our service packages so you always know exactly how your campaigns are performing." },
+    { q: "What services do you offer?", a: "We offer comprehensive digital marketing solutions including SEO services, social media marketing, digital marketing training courses, event management, custom web development and design, professional video production, and PPC advertising campaigns. Our agency is a one-stop solution for all your digital needs." },
+    { q: "Do you offer digital marketing courses?", a: "Yes! We offer comprehensive digital marketing courses with hands-on training. Our courses cover SEO, social media marketing, content marketing, email marketing, PPC advertising, and analytics. Duration: 8–12 weeks. Available in online and offline modes. Certification provided upon completion with job placement support." },
+    { q: "What types of websites do you design and develop?", a: "We design and develop all types of websites including business websites, e-commerce stores, portfolio websites, educational platforms, event booking websites, and custom web applications. We use modern technologies like WordPress, React, and custom HTML/CSS. All our websites are mobile-responsive, SEO-optimized, and user-friendly." },
+    { q: "What are your event management services?", a: "Our event management services include complete event planning, venue selection, vendor coordination, digital promotion, event photography and videography, live streaming, social media coverage, and post-event reports. We handle corporate events, product launches, conferences, workshops, and promotional events from start to finish." },
+    { q: "Do you produce video content?", a: "Yes! We produce promotional videos, explainer videos, social media reels, product demos, corporate videos, testimonial videos, and event coverage with professional editing and graphics." },
+    { q: "What is your approach to PPC advertising?", a: "We manage Google Ads, Facebook Ads, Instagram Ads, LinkedIn Ads, and YouTube Ads with keyword research, ad creation, campaign optimisation, and monthly performance reports to maximise your ROI." },
   ];
 
   return (

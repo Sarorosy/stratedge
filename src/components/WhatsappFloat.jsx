@@ -1,7 +1,7 @@
 import React from 'react'
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 function WhatsappFloat() {
-    const WA = "https://wa.me/918122652903";
+    const WA = "https://wa.me/919361110910";
     return (
         <>
         
@@ -20,7 +20,7 @@ function WhatsappFloat() {
             <img src='/whatsapp.svg' className='w-20 ' />
         </a> */}
         <FloatingWhatsApp
-        phoneNumber="918122652903"
+        phoneNumber="919361110910"
         accountName="Stratedge"
         avatar="/s-logo.png"
         statusMessage="Typically replies in minutes"
