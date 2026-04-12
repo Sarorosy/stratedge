@@ -35,10 +35,10 @@ export default function Header() {
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-    window.localStorage.setItem("theme", theme);
-  }, [theme]);
+  // useEffect(() => {
+  //   document.documentElement.setAttribute("data-theme", theme);
+  //   window.localStorage.setItem("theme", theme);
+  // }, [theme]);
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));

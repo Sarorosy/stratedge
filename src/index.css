@@ -1,9 +1,8 @@
 @import "tailwindcss";
 
-:root {
-  /* Premium Palette for Strategy & Design Agency */
-  
-  /* Primary colors */
+
+/* 
+:root--old {
   --color-deep-navy: #0D1B2A;
   --color-ember-orange: #E8522A;
   --color-steel-blue: #1A3C5E;
@@ -12,7 +11,6 @@
   --color-cool-grey: #8A9BAD;
   --color-midnight: #14213D;
   
-  /* Theme colors - Light */
   --color-bg: #F2EDE6;
   --color-page-bg: linear-gradient(135deg, #F2EDE6 0%, #FFFFFF 50%, #F2EDE6 100%);
   
@@ -39,7 +37,9 @@
 
   --color-header-bg: rgba(255, 255, 255, 0.85);
   --color-shadow: 0 20px 60px rgba(13, 27, 42, 0.15);
-}
+} */
+
+/* html[data-theme="dark"] */
 
 html[data-theme="dark"] {
   --color-bg: #0D1B2A;
