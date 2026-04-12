@@ -8,23 +8,24 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [theme, setTheme] = useState(() => {
-    if (typeof window === "undefined") {
-      return "light";
-    }
+  // const [theme, setTheme] = useState(() => {
+  //   if (typeof window === "undefined") {
+  //     return "dark";
+  //   }
 
-    const savedTheme = window.localStorage.getItem("theme");
-    if (savedTheme === "light" || savedTheme === "dark") {
-      return savedTheme;
-    }
+  //   const savedTheme = window.localStorage.getItem("theme");
+  //   if (savedTheme === "light" || savedTheme === "dark") {
+  //     return savedTheme;
+  //   }
 
-    const currentTheme = document.documentElement.getAttribute("data-theme");
-    if (currentTheme === "light" || currentTheme === "dark") {
-      return currentTheme;
-    }
+  //   const currentTheme = document.documentElement.getAttribute("data-theme");
+  //   if (currentTheme === "light" || currentTheme === "dark") {
+  //     return currentTheme;
+  //   }
 
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  });
+  //   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  // });
+  const [theme, setTheme] = useState("dark");
   const WA = "https://wa.me/918122652903";
 
 
@@ -108,7 +109,7 @@ export default function Header() {
         </a>
 
         {/* Theme Toggle Button */}
-        <button
+        {/* <button
           onClick={toggleTheme}
           style={{
             background: scrolled ? "var(--color-surface)" : "rgba(255,255,255,0.08)",
@@ -125,7 +126,7 @@ export default function Header() {
         >
           {theme === "light" ? <Sun size={20} /> : <Moon size={20} />}
           
-        </button>
+        </button> */}
 
         {/* Mobile burger */}
         <button onClick={() => setOpen(!open)} style={{ background: "none", border: "none", color: headerTextColor, cursor: "pointer", padding: 4 }} className="mobile-menu-btn">

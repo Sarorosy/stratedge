@@ -4,7 +4,7 @@ import {
   Clock, Star, Quote, CheckCircle, TrendingUp, Users,
   Award, Target, Zap, Search, BarChart2, Share2, Globe,
   Layers, Calendar, ChevronDown, MessageCircle, Send,
-  Facebook, Instagram, Youtube, Play
+  Facebook, Instagram, Youtube, Play, ExternalLink
 } from "lucide-react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -901,12 +901,29 @@ function Testimonials() {
 ═══════════════════════════════════════════════ */
 function Clients() {
   const clients = [
-    { id: 1, name: "Client 1", img: "/clients/1.png" },
-    { id: 2, name: "Client 2", img: "/clients/2.png" },
-    { id: 3, name: "Client 3", img: "/clients/3.png" },
-    { id: 4, name: "Client 4", img: "/clients/4.jpeg" },
-    { id: 5, name: "Client 5", img: "/clients/5.jpeg" },
+    { id: 1, name: "Client 1", img: "/clients/1.png", web: "https://www.instagram.com/dr.rahmans_physio_clinic" },
+    { id: 2, name: "Client 2", img: "/clients/2.png", web: "https://www.instagram.com/pyro_interiors" },
+    { id: 3, name: "Client 3", img: "/clients/3.png", web: "https://www.instagram.com/big_brains_cdc" },
+    { id: 4, name: "Client 4", img: "/clients/4.png", web: "https://www.jnphysio.in/" },
+    { id: 5, name: "Client 5", img: "/clients/5.png", web: "https://periyarschool.com/" },
+    { id: 6, name: "Client 6", img: "/clients/6.png", web: "https://www.taxlaservices.com/" },
+    { id: 7, name: "Client 7", img: "/clients/7.png", web: "https://drnavinsdiabetescare.com/" },
   ];
+
+  const [activeClient, setActiveClient] = useState(null);
+  const [iframeError, setIframeError] = useState(false);
+
+  const openModal = (client) => {
+    setActiveClient(client);
+    setIframeError(false);
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeModal = () => {
+    setActiveClient(null);
+    setIframeError(false);
+    document.body.style.overflow = "";
+  };
 
   return (
     <section style={{
@@ -966,8 +983,10 @@ function Clients() {
           width: "fit-content",
         }}>
           {[...clients, ...clients, ...clients].map((client, i) => (
-            <div
+            <button
               key={i}
+              onClick={() => openModal(client)}
+              title={`View ${client.name}`}
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -979,6 +998,7 @@ function Clients() {
                 padding: "20px",
                 flexShrink: 0,
                 transition: "all 0.3s ease",
+                cursor: "pointer",
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.borderColor = "var(--color-accent)";
@@ -999,22 +1019,19 @@ function Clients() {
                   maxHeight: "100%",
                   objectFit: "contain",
                   opacity: 0.8,
+                  transition: "opacity 0.3s ease",
+                  pointerEvents: "none",
                 }}
               />
-            </div>
+            </button>
           ))}
         </div>
 
         <style>{`
           @keyframes clientMarquee {
-            from {
-              transform: translateX(0);
-            }
-            to {
-              transform: translateX(calc(-180px * 5 - 60px * 5));
-            }
+            from { transform: translateX(0); }
+            to { transform: translateX(calc(-180px * 5 - 60px * 5)); }
           }
-
           @media (max-width: 900px) {
             [style*="animation: clientMarquee"] {
               animation: clientMarquee 20s linear infinite !important;
@@ -1024,6 +1041,137 @@ function Clients() {
           }
         `}</style>
       </div>
+
+      {/* iframe Modal */}
+      {activeClient && (
+        <div
+          onClick={closeModal}
+          style={{
+            position: "fixed",
+            inset: 0,
+            background: "rgba(0,0,0,0.85)",
+            zIndex: 9999,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "20px",
+          }}
+        >
+          <div
+            onClick={e => e.stopPropagation()}
+            style={{
+              width: "100%",
+              maxWidth: 1100,
+              height: "85vh",
+              background: "var(--color-surface-strong)",
+              border: "1px solid var(--color-accent)",
+              display: "flex",
+              flexDirection: "column",
+              overflow: "hidden",
+            }}
+          >
+            {/* Modal header */}
+            <div style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              padding: "12px 20px",
+              borderBottom: "1px solid var(--color-border)",
+              background: "var(--color-surface-alt)",
+              flexShrink: 0,
+            }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                <img
+                  src={activeClient.img}
+                  alt={activeClient.name}
+                  style={{ height: 28, objectFit: "contain", opacity: 0.9 }}
+                />
+                <span style={{
+                  color: "var(--color-text-faint)",
+                  fontSize: 12,
+                  letterSpacing: 1,
+                  maxWidth: 400,
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  whiteSpace: "nowrap",
+                }}>
+                  {activeClient.web}
+                </span>
+              </div>
+              <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+                <a
+                  href={activeClient.web}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "inline-flex", alignItems: "center", gap: 6,
+                    color: "var(--color-accent)", fontSize: 11, fontWeight: 600,
+                    letterSpacing: 1.5, textTransform: "uppercase", textDecoration: "none",
+                    border: "1px solid var(--color-accent)", padding: "6px 14px",
+                  }}
+                >
+                  <ExternalLink size={12} /> Open Tab
+                </a>
+                <button
+                  onClick={closeModal}
+                  style={{
+                    background: "transparent",
+                    border: "1px solid var(--color-border)",
+                    color: "var(--color-text-soft)",
+                    cursor: "pointer",
+                    width: 32, height: 32,
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    fontSize: 18, lineHeight: 1,
+                  }}
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+
+            {/* iframe / blocked fallback */}
+            {iframeError ? (
+              <div style={{
+                flex: 1,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 20,
+                padding: 40,
+                textAlign: "center",
+              }}>
+                <div style={{ fontSize: 48 }}>🚫</div>
+                <p style={{ color: "var(--color-text-soft)", fontSize: 15, lineHeight: 1.7 }}>
+                  This website doesn't allow embedding inside a frame.
+                </p>
+                <a
+                  href={activeClient.web}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "inline-flex", alignItems: "center", gap: 8,
+                    background: "linear-gradient(135deg,var(--color-accent),var(--color-accent-strong))",
+                    color: "var(--color-accent-contrast)",
+                    padding: "12px 28px", fontSize: 12, fontWeight: 700,
+                    letterSpacing: 2, textTransform: "uppercase", textDecoration: "none",
+                  }}
+                >
+                  <ExternalLink size={14} /> Open in New Tab
+                </a>
+              </div>
+            ) : (
+              <iframe
+                src={activeClient.web}
+                title={activeClient.name}
+                style={{ flex: 1, border: "none", width: "100%" }}
+                sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+                onError={() => setIframeError(true)}
+              />
+            )}
+          </div>
+        </div>
+      )}
     </section>
   );
 }
