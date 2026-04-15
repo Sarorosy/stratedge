@@ -19,7 +19,7 @@ export default function AppRouter() {
   return (
     <Router>
       <ScrollToTop />
-      <SplashCursor />
+      {/* <SplashCursor /> */}
       <Routes>
         <Route element={<PrivateRoute />}>
           <Route element={<Layout />}>
