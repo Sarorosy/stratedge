@@ -44,7 +44,7 @@ export default function Header() {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
-  const nav = ["About", "Services", "Course", "Contact"];
+  const nav = ["About", "Services", "Course", "Blogs", "Contact"];
   const headerTextColor = scrolled ? "var(--color-text-strong)" : "var(--color-text)";
   const headerLinkColor = scrolled ? "var(--color-text-muted)" : "var(--color-text-soft)";
 
@@ -250,13 +250,13 @@ export default function Header() {
 
           {/* Social + Contact */}
           <div style={{ fontSize: 13, color: "var(--color-text-muted)" }}>
-            <p style={{ marginBottom: 6 }}>📧 your@email.com</p>
-            <p style={{ marginBottom: 6 }}>📱 +91 81226 52903</p>
+            <p style={{ marginBottom: 6 }}>📧 info@thestratedgee.com</p>
+            <p style={{ marginBottom: 6 }}>📱 +91 93611 10910</p>
 
             <div style={{ display: "flex", gap: 12, marginTop: 10 }}>
-              <a href="#" style={{ textDecoration: "none" }}>Instagram</a>
-              <a href="#" style={{ textDecoration: "none" }}>LinkedIn</a>
-              <a href="#" style={{ textDecoration: "none" }}>Twitter</a>
+              <a href="https://www.instagram.com/the_stratedge/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "var(--color-text-muted)", transition: "color 0.2s" }} onMouseEnter={e => e.target.style.color = "var(--color-accent)"} onMouseLeave={e => e.target.style.color = "var(--color-text-muted)"}>Instagram</a>
+              <a href="https://www.linkedin.com/feed/update/urn:li:activity:7379807340633546753" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "var(--color-text-muted)", transition: "color 0.2s" }} onMouseEnter={e => e.target.style.color = "var(--color-accent)"} onMouseLeave={e => e.target.style.color = "var(--color-text-muted)"}>LinkedIn</a>
+              <a href="https://x.com/thestratedge/status/1974041702210896056" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "var(--color-text-muted)", transition: "color 0.2s" }} onMouseEnter={e => e.target.style.color = "var(--color-accent)"} onMouseLeave={e => e.target.style.color = "var(--color-text-muted)"}>Twitter</a>
             </div>
           </div>
         </div>

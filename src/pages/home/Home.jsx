@@ -351,7 +351,7 @@ function About() {
               background: "var(--color-surface-strong)", border: "1px solid var(--color-border)",
               padding: "50px 40px", textAlign: "center", marginBottom: 3,
             }}>
-              <div style={{ fontSize: 80, fontWeight: 900, color: "var(--color-accent)", lineHeight: 1 }}>4+</div>
+              <div style={{ fontSize: 80, fontWeight: 900, color: "var(--color-accent)", lineHeight: 1 }}>1+</div>
               <div style={{ color: "var(--color-text-soft)", fontSize: 12, letterSpacing: 3, textTransform: "uppercase", marginTop: 8 }}>Years of Excellence</div>
             </div>
 

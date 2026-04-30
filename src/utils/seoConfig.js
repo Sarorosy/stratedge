@@ -52,6 +52,13 @@ export const seoConfig = {
     canonical: `${BASE_URL}/terms`,
     ogImage: OG_IMAGE,
   },
+  blogs: {
+    title: "Blog - Stratedge | Digital Marketing Insights & AI Strategy",
+    description: "Read our latest articles on digital marketing, SEO, AI optimization, and business growth strategies. Expert insights for local and global businesses.",
+    keywords: "digital marketing blog, SEO insights, AI optimization, GEO strategy, business growth, marketing articles",
+    canonical: `${BASE_URL}/blogs`,
+    ogImage: OG_IMAGE,
+  },
 };
 
 export const getPageSEO = (pageName) => {

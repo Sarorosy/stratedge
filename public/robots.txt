@@ -2,9 +2,19 @@
 User-agent: *
 Allow: /
 
-# Disallow admin or dashboard areas if needed
-# Uncomment the line below if you want to prevent indexing of the dashboard
-# Disallow: /dashboard
+# Disallow dashboard - private area
+Disallow: /dashboard
+
+# Allow all public pages and blogs
+Allow: /
+Allow: /about
+Allow: /services
+Allow: /course
+Allow: /contact-us
+Allow: /blogs
+Allow: /blog/
+Allow: /terms
+Allow: /privacy-policy
 
 # Sitemap location
 Sitemap: https://stratedge.com/sitemap.xml

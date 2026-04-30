@@ -221,7 +221,7 @@ function OurStory() {
                   { n: "50+", l: "Projects\nCompleted", icon: Award },
                   { n: "30+", l: "Satisfied\nClients", icon: Users },
                   { n: "90%+", l: "Retention\nRate", icon: TrendingUp },
-                  { n: "4+", l: "Years\nExperience", icon: Target },
+                  { n: "1+", l: "Years\nExperience", icon: Target },
                 ].map(({ n, l, icon: Icon }) => (
                   <div key={n} style={{
                     background: "var(--color-surface-strong)", padding: "28px 24px",

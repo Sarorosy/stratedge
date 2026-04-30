@@ -145,6 +145,7 @@ export default function Footer() {
             {[
               { label: 'About Us', to: '/about' },
               { label: 'Academy', to: '/course' },
+              { label: 'Blog', to: '/blogs' },
               { label: 'Contact', to: '/contact-us' },
               { label: 'Privacy Policy', to: '/privacy-policy' },
               { label: 'Terms', to: '/terms' },

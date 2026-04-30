@@ -13,6 +13,8 @@ import ContactUs from "../pages/ContactUs";
 import SplashCursor from "../components/SplashCursor";
 import Terms from "../pages/Terms";
 import PrivacyPolicy from "../pages/PrivacyPolicy";
+import Blogs from "../pages/Blogs";
+import BlogPost from "../pages/BlogPost";
 
 
 export default function AppRouter() {
@@ -28,6 +30,8 @@ export default function AppRouter() {
             <Route path="/services" element={<Services />} />
             <Route path="/course" element={<Course />} />
             <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
 
